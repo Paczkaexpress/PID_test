@@ -29,7 +29,6 @@ class PID:
         self.limit = limit
 
     def control(self, pos_sensor: float, prev_pos_sensor: float):
-        # it is only possible to measure the position so based on that we need to design a conctroller
         pos_error = self.demand - pos_sensor
         
         # calculate error sum 
@@ -174,7 +173,7 @@ if __name__ == "__main__":
         # set a new position demand
         if(t == 500/dt):
             pid.set_demand(1)
-            
+
         # set a new position demand with mechanical lock /  anti windup test
         if(t == 700/dt):
             pid.set_demand(-2)
